@@ -20,13 +20,7 @@ function Dashboard() {
   };
 
   if (loading) {
-    return (
-      <div className="page">
-        <div className="loading-container">
-          <div className="spinner"></div>
-        </div>
-      </div>
-    );
+    return null; // Don't show loading spinner, just render nothing briefly
   }
 
   if (!isAdmin()) {

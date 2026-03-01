@@ -5,11 +5,18 @@ export function useAuth() {
   const [user, setUser] = useState(null);
   const [role, setRole] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
     let mounted = true;
 
     const initAuth = async () => {
+      // Skip if already initialized
+      if (initialized) {
+        setLoading(false);
+        return;
+      }
+
       try {
         const { data: { session } } = await supabase.auth.getSession();
         
@@ -22,6 +29,7 @@ export function useAuth() {
             setRole(null);
           }
           setLoading(false);
+          setInitialized(true);
         }
       } catch (error) {
         console.error('Error initializing auth:', error);
@@ -51,7 +59,7 @@ export function useAuth() {
       mounted = false;
       authListener?.subscription?.unsubscribe();
     };
-  }, []);
+  }, [initialized]);
 
   const fetchUserRole = async (userId) => {
     try {
