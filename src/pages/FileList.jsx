@@ -10,15 +10,6 @@ function FileList() {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (authLoading) return; // ⛔ wait for auth
-    if (!isAdmin()) {
-      history.push('/dashboard');
-    } else {
-      fetchFiles();
-    }
-  }, [authLoading, isAdmin, history]);
-
   const fetchFiles = async () => {
     setLoading(true);
     const { data, error } = await supabase
@@ -29,6 +20,22 @@ function FileList() {
     if (!error) {
       setFiles(data);
     }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    if (authLoading) return; // ⛔ wait for auth
+    
+    console.log('FileList useEffect - isAdmin:', isAdmin());
+    
+    if (!isAdmin()) {
+      console.log('Not admin, redirecting to dashboard');
+      history.push('/dashboard');
+    } else {
+      console.log('Is admin, fetching files');
+      fetchFiles();
+    }
+  }, [authLoading, isAdmin, history]);
     setLoading(false);
   };
 
