@@ -3,7 +3,7 @@
 }
 
 .dashboard-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
   color: white;
   padding: 20px 32px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -95,7 +95,7 @@
 }
 
 .welcome-banner {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
   border-radius: 20px;
   padding: 40px;
   margin-bottom: 32px;
@@ -103,7 +103,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
 }
 
 .welcome-text h2 {
@@ -186,7 +186,7 @@
 .action-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-  border-color: #667eea;
+  border-color: #3b82f6;
 }
 
 .card-header {
@@ -207,11 +207,11 @@
 }
 
 .upload-icon {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
 }
 
 .files-icon {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
 }
 
 .card-badge {
@@ -248,7 +248,7 @@
 }
 
 .card-link {
-  color: #667eea;
+  color: #3b82f6;
   font-weight: 600;
   font-size: 14px;
 }

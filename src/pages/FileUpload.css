@@ -19,8 +19,8 @@
 }
 
 .file-input-container:hover {
-  border-color: #667eea;
-  background: #e8f0fe;
+  border-color: #3b82f6;
+  background: #eff6ff;
 }
 
 .file-input-label {
@@ -34,7 +34,7 @@
 }
 
 .file-input-label strong {
-  color: #667eea;
+  color: #3b82f6;
   font-size: 16px;
   display: block;
   margin-bottom: 8px;
