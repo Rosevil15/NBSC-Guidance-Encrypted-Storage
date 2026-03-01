@@ -35,7 +35,7 @@ function FileList() {
       console.log('Is admin, fetching files');
       fetchFiles();
     }
-  }, [authLoading, isAdmin, history]);
+  }, [authLoading]); // Remove isAdmin and history from dependencies
     setLoading(false);
   };
 
@@ -112,7 +112,11 @@ function FileList() {
   return (
     <div className="page">
       <header className="header">
-        <button onClick={() => history.push('/dashboard')} className="btn-back">
+        <button 
+          type="button"
+          onClick={() => history.push('/dashboard')} 
+          className="btn-back"
+        >
           ← Back
         </button>
         <h1>Files</h1>

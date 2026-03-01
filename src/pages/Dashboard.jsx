@@ -116,7 +116,11 @@ function Dashboard() {
               </div>
             </div>
 
-            <div className="action-card files-card" onClick={() => history.push('/files')}>
+            <div className="action-card files-card" onClick={() => {
+              console.log('Files card clicked!');
+              console.log('Navigating to /files');
+              history.push('/files');
+            }}>
               <div className="card-header">
                 <div className="card-icon files-icon">
                   <span>📁</span>

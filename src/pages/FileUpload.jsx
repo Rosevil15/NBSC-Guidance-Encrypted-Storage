@@ -122,7 +122,11 @@ function FileUpload() {
   return (
     <div className="page">
       <header className="header">
-        <button onClick={() => history.push('/dashboard')} className="btn-back">
+        <button 
+          type="button"
+          onClick={() => history.push('/dashboard')} 
+          className="btn-back"
+        >
           ← Back
         </button>
         <h1>Upload File</h1>
