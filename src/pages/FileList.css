@@ -13,19 +13,52 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  transition: all 0.2s;
+}
+
+.file-item:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.file-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.file-icon-large {
+  font-size: 32px;
 }
 
 .file-info h3 {
   font-size: 18px;
   font-weight: 600;
   color: #333;
-  margin: 0 0 8px 0;
+  margin: 0 0 4px 0;
 }
 
 .file-info p {
   font-size: 14px;
   color: #666;
-  margin: 4px 0;
+  margin: 0;
+}
+
+.file-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.file-type-badge {
+  background: #f0f0f0;
+  color: #666;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .file-date {

@@ -31,6 +31,14 @@ function FileList() {
     setLoading(false);
   };
 
+  const getFileIcon = (fileName) => {
+    return '📕';
+  };
+
+  const getFileType = (fileName) => {
+    return 'PDF';
+  };
+
   const downloadFile = async (fileUrl) => {
     try {
       const { data, error } = await supabase.storage
@@ -58,8 +66,14 @@ function FileList() {
 
       if (error) throw error;
 
-      const url = URL.createObjectURL(data);
+      const blob = new Blob([data], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+      
+      // Open PDF in new tab
       window.open(url, '_blank');
+      
+      // Clean up after a delay
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch (error) {
       alert('Error viewing file: ' + error.message);
     }
@@ -112,11 +126,19 @@ function FileList() {
             {files.map((file) => (
               <div key={file.id} className="file-item">
                 <div className="file-info">
-                  <h3>{file.student_name}</h3>
-                  <p>{file.form_type}</p>
-                  <p className="file-date">
-                    {new Date(file.created_at).toLocaleDateString()}
-                  </p>
+                  <div className="file-header">
+                    <span className="file-icon-large">{getFileIcon(file.file_url || '')}</span>
+                    <div>
+                      <h3>{file.student_name}</h3>
+                      <p>{file.form_type}</p>
+                    </div>
+                  </div>
+                  <div className="file-meta">
+                    <span className="file-type-badge">{getFileType(file.file_url || '')}</span>
+                    <span className="file-date">
+                      {new Date(file.created_at).toLocaleDateString()}
+                    </span>
+                  </div>
                 </div>
                 <div className="file-actions">
                   <span className={`badge badge-${file.classification.toLowerCase()}`}>
@@ -127,14 +149,14 @@ function FileList() {
                       <button
                         onClick={() => viewFile(file.file_url)}
                         className="btn-view"
-                        title="View PDF"
+                        title="View Document"
                       >
                         👁️ View
                       </button>
                       <button
                         onClick={() => downloadFile(file.file_url)}
                         className="btn-secondary"
-                        title="Download PDF"
+                        title="Download Document"
                       >
                         ⬇️ Download
                       </button>

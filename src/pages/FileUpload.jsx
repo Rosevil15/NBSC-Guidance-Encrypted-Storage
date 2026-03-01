@@ -157,7 +157,7 @@ function FileUpload() {
               <label htmlFor="file-input" className="file-input-label">
                 <div className="file-icon">📎</div>
                 <strong>Choose a PDF file</strong>
-                <p>or drag and drop here</p>
+                <p>Only PDF files are allowed (Max 10MB)</p>
                 <input
                   id="file-input"
                   type="file"
